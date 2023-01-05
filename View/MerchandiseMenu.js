@@ -21,7 +21,11 @@ var MerchandiseMenu = /** @class */ (function () {
             } while (command < 1 || command > 6);
             switch (command) {
                 case 1: {
-                    console.table(this.merchandiseManager.showList());
+                    if (MerchandiseManager_1.MerchandiseManager.merchandiseList.length == 0) {
+                        console.log("No data");
+                    }
+                    else
+                        console.table(this.merchandiseManager.showList());
                     break;
                 }
                 case 2: {

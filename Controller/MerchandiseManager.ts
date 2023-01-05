@@ -1,7 +1,7 @@
 import {Merchandise} from "../Models/Merchandise";
 
 export class MerchandiseManager {
-    static merchandiseList: Merchandise[] = [new Merchandise(1,"snack","kid",5000,100,"10-1-2022","sweet")];
+    static merchandiseList: Merchandise[] = [new Merchandise(1,"snack","kid",5000,100,10-1-2022,"sweet")];
 
     public showList(): Merchandise[] {
         if (MerchandiseManager.merchandiseList.length == 0) {
@@ -9,8 +9,8 @@ export class MerchandiseManager {
         }else
         return MerchandiseManager.merchandiseList;
     }
-    public addNewMerchandise(id: number, name: string, type: string, price: number, quantity: number, detail: string, dateCreated: string) {
-        let merchandise = new Merchandise(id, name, type, price, quantity, detail, dateCreated);
+    public addNewMerchandise(id: number, name: string, type: string, price: number, quantity: number, detail: string, dateCreated: number) {
+        let merchandise = new Merchandise(id, name, type, price, quantity, dateCreated, detail);
         MerchandiseManager.merchandiseList.push(merchandise);
     }
     public editMerchandise(name: string, newObject) {

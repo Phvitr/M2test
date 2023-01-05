@@ -4,10 +4,10 @@ export class Merchandise {
     private _type: string;
     private _price: number;
     private _quantity: number;
-    private _dateCreated: string;
+    private _dateCreated: number;
     private _detail: string;
 
-    constructor(id: number, name: string, type: string, price: number, quantity: number, dateCreated: string, detail: string) {
+    constructor(id: number, name: string, type: string, price: number, quantity: number, dateCreated: number, detail: string) {
         this._id = id;
         this._name = name;
         this._type = type;
@@ -57,11 +57,11 @@ export class Merchandise {
         this._quantity = value;
     }
 
-    getDateCreated(): string {
+    getDateCreated(): number {
         return this._dateCreated;
     }
 
-    setDateCreated(value: string) {
+    setDateCreated(value: number) {
         this._dateCreated = value;
     }
 

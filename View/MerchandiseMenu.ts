@@ -27,6 +27,9 @@ export class MerchandiseMenu {
             } while (command < 1 || command > 6);
             switch (command) {
                 case 1: {
+                    if (MerchandiseManager.merchandiseList.length == 0) {
+                        console.log("No data")
+                    }else
                     console.table(this.merchandiseManager.showList());
                     break;
                 }
@@ -37,13 +40,14 @@ export class MerchandiseMenu {
                     break;
                 }
                 case 3: {
+                    let date = new Date()
                     let merchandiseId = +readlineSync.question("Enter merchandise id number: ");
                     let merchandiseName = readlineSync.question("Enter merchandise name: ");
                     let merchandiseType = readlineSync.question("Enter merchandise type: ");
                     let merchandisePrice = +readlineSync.question("Enter merchandise price: ");
                     let merchandiseQuantity = +readlineSync.question("Enter merchandise quantity: ");
                     let merchandiseDetail = readlineSync.question("Enter merchandise detail: ");
-                    let merchandiseDateCreated = readlineSync.question("Enter current time and date: ")
+                    let merchandiseDateCreated = date.getDate();
                     this.merchandiseManager.addNewMerchandise(merchandiseId, merchandiseName, merchandiseType, merchandisePrice, merchandiseQuantity, merchandiseDetail, merchandiseDateCreated);
                     break;
                 }
@@ -55,8 +59,8 @@ export class MerchandiseMenu {
                     let merchandisePrice = +readlineSync.question("Enter new merchandise price: ");
                     let merchandiseQuantity = +readlineSync.question("Enter new merchandise quantity: ");
                     let merchandiseDetail = readlineSync.question("Enter new merchandise detail: ");
-                    let merchandiseDateCreated = readlineSync.question("Enter current time and date: ")
-                    let newMerchandise = new Merchandise (merchandiseId, merchandiseName, merchandiseType, merchandisePrice, merchandiseQuantity, merchandiseDetail, merchandiseDateCreated);
+                    let merchandiseDate = readlineSync.question("Enter new merchandise date: ");
+                    let newMerchandise = new Merchandise (merchandiseId, merchandiseName, merchandiseType, merchandisePrice, merchandiseQuantity, merchandiseDetail, merchandiseDate);
                     this.merchandiseManager.editMerchandise(currentMerchandiseName, newMerchandise);
                     break;
                 }
